@@ -1,9 +1,10 @@
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import styleComponent from '../styles/style-component';
 
 
-export default function OnBroading({ navigation }: any) {
+export default function OnBroading(props: { navigation: NativeStackNavigationProp<any> }) {
   return (
     <View style={
       [
@@ -16,7 +17,7 @@ export default function OnBroading({ navigation }: any) {
       ]
     }>
       <Pressable onPress={() => {
-        navigation.navigate("SignUp")
+        props.navigation.navigate("SignUp")
       }} style={[
         {
           backgroundColor: "#833DB4",
@@ -58,7 +59,7 @@ export default function OnBroading({ navigation }: any) {
           ]
         }>Already have an account?</Text>
         <Pressable onPress={() => {
-          navigation.navigate("SignIn")
+          props.navigation.navigate("SignIn")
         }} style={{
           marginRight: 2,
         }}>
