@@ -13,7 +13,9 @@ export default function NavigatorApp() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='OnBroading'>
-        <Stack.Screen name={"SignUp"} component={SignUp} />
+        <Stack.Screen name={"SignUp"} component={SignUp} options={{
+          headerShown: false
+        }} />
         <Stack.Screen name={"SignIn"} component={SignIn} />
         <Stack.Screen name={"Recovery"} component={Recovery} />
         <Stack.Screen name={"Confirmation"} component={Confirmation} />

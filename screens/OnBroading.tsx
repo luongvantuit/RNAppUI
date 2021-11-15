@@ -9,8 +9,9 @@ export default function OnBroading({ navigation }: any) {
       [
         styleComponent.box.container,
         styleComponent.display.flex,
+        styleComponent.box.justifyContentFlexEnd,
         {
-          justifyContent: 'flex-end'
+          backgroundColor: 'white',
         }
       ]
     }>
@@ -24,8 +25,6 @@ export default function OnBroading({ navigation }: any) {
           borderRadius: 40,
           height: 40,
         },
-        styleComponent.box.alignItemsCenter,
-        styleComponent.box.justifyContentCenter,
       ]} >
         <Text style={[
           {
@@ -33,7 +32,8 @@ export default function OnBroading({ navigation }: any) {
             fontFamily: 'Nunito',
             fontWeight: '600',
             textAlign: 'center',
-            color: 'white'
+            color: 'white',
+            lineHeight: 40,
           }
         ]}>Let's get started</Text>
       </Pressable>
