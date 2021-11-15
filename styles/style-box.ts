@@ -15,6 +15,12 @@ const styleBox = StyleSheet.create({
     justifyContentCenter: {
         justifyContent: 'center',
     },
+    alignContentCenter: {
+        alignContent: 'center'
+    },
+    alignItemsCenter: {
+        alignItems: 'center'
+    }
 })
 
 export default styleBox
