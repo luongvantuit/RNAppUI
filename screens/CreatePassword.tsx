@@ -41,6 +41,7 @@ export default function CreatePassword() {
                     setInputPasswordFocus(true)
                 }}
                 placeholder='Enter your password'
+                placeholderTextColor={'#B7BACA'}
                 onChangeText={(password: string) => {
                     setInputPassword(password)
                 }}
@@ -66,7 +67,6 @@ export default function CreatePassword() {
                 ]}
                 secureTextEntry={true}
                 textContentType='password'
-                keyboardType='visible-password'
             />
             <TextInputForm
                 onBlur={() => {
@@ -76,6 +76,7 @@ export default function CreatePassword() {
                     setInputRetypePasswordFocus(true)
                 }}
                 placeholder='Retype your password'
+                placeholderTextColor={'#B7BACA'}
                 onChangeText={(password: string) => {
                     setInputRetypePassword(password)
                 }}
@@ -101,7 +102,6 @@ export default function CreatePassword() {
                 ]}
                 secureTextEntry={true}
                 textContentType='password'
-                keyboardType='visible-password'
             />
             <View
                 style={[
@@ -155,7 +155,8 @@ const style = StyleSheet.create({
         fontSize: 16,
         fontWeight: '400',
         textAlignVertical: 'center',
-        marginHorizontal: 20
+        marginHorizontal: 20,
+        color: '#31385C',
     }
 
 })

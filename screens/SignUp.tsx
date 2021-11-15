@@ -6,6 +6,7 @@ import IcoSelect from '../svg/IcoSelect';
 import ButtonForm from '../widgets/ButtonForm';
 import Container from '../widgets/Container';
 import HeaderBack from '../widgets/HeaderBack';
+import TextInputForm from '../widgets/TextInputForm';
 
 export default function SignUp(props: { navigation: NativeStackNavigationProp<any> }) {
 
@@ -29,75 +30,83 @@ export default function SignUp(props: { navigation: NativeStackNavigationProp<an
                     styleComponent.text.textAlignCenter
                 ]}
             >Verify your phone number to start</Text>
-            <View
-                style={[
-                    styleComponent.flex.row,
-                    {
-                        marginHorizontal: 58,
-                    },
-                    styleComponent.box.alignItemsCenter
-                ]}>
-                <Text
-                    style={[
-                        style.colorViolet,
-                        style.text,
-                        {
-                            fontSize: 24,
-                            fontWeight: '600',
-                            width: 44,
-                            height: 30,
-                            lineHeight: 30,
-                        }
-                    ]}
-                >+84</Text>
-                <Pressable
-                    style={
-                        {
-                            marginLeft: 6,
-                            width: 16,
-                            height: 16,
-                        }
-                    } onPress={() => {
-                    }}>
-                    <IcoSelect width={16} height={16} />
-                </Pressable>
-                {
-                    // Text Input you phone number
+            <TextInputForm
+                prefix={
+                    <View
+                        style={[
+                            styleComponent.flex.row,
+                            styleComponent.box.alignItemsCenter,
+                        ]}
+                    >
+                        <Text
+                            style={[
+                                styleComponent.text.primary,
+                                {
+                                    fontSize: 24,
+                                    fontWeight: '600',
+                                    width: 44,
+                                    height: 30,
+                                    lineHeight: 30,
+                                    color: '#833DB4'
+                                }
+                            ]}
+                        >+84</Text>
+                        <Pressable
+                            style={
+                                {
+                                    marginLeft: 6,
+                                    width: 16,
+                                    height: 16,
+                                }
+                            }
+                            onPress={() => {
+                            }}
+                        >
+                            <IcoSelect width={16} height={16} />
+                        </Pressable>
+                    </View>
                 }
-                <TextInput
-                    placeholder='you phone number'
-                    placeholderTextColor={'#D8DAE5'}
-                    style={{
+                containerProps={{
+                    style: [
+                        styleComponent.flex.row,
+                        {
+                            paddingHorizontal: 58,
+                        },
+                        styleComponent.box.alignItemsCenter
+                    ]
+                }}
+                placeholder='you phone number'
+                placeholderTextColor={'#D8DAE5'}
+                style={[
+                    {
                         fontWeight: inputNumberPhone.length > 0 ? '600' : '400',
                         fontSize: inputNumberPhone.length > 0 ? 24 : 20,
                         color: '#31385C',
                         paddingLeft: 20,
-                        flexGrow: 0,
-                        height: 30,
+                    },
+                    styleComponent.box.container
+                ]}
+                onChangeText={(text: string) => {
+                    setInputNumberPhone(text)
+                }}
+                keyboardType='phone-pad'
+                textContentType='telephoneNumber'
+                onSubmitEditing={Keyboard.dismiss}
+                onBlur={() => {
+                    setInputNumberPhoneFocus(false)
+                }}
+                onFocus={() => {
+                    setInputNumberPhoneFocus(true)
+                }}
 
-                    }}
-                    onChangeText={(text: string) => {
-                        setInputNumberPhone(text)
-                    }}
-                    keyboardType='phone-pad'
-                    textContentType='telephoneNumber'
-                    onSubmitEditing={Keyboard.dismiss}
-                    maxLength={9}
-                    numberOfLines={1}
-                    onBlur={() => {
-                        setInputNumberPhoneFocus(false)
-                    }}
-                    onFocus={() => {
-                        setInputNumberPhoneFocus(true)
-                    }}
-                />
-            </View>
+            />
+
             <View
-                style={[{
-                    justifyContent: 'flex-end'
-                },
-                styleComponent.box.container,
-                styleComponent.display.flex]}
+                style={[
+                    styleComponent.box.justifyContentFlexEnd,
+                    styleComponent.box.container,
+                    styleComponent.display.flex
+                ]}
             >
                 <View
                     style={{
@@ -107,7 +116,7 @@ export default function SignUp(props: { navigation: NativeStackNavigationProp<an
                         style={[{
                             marginTop: 20,
                         },
-                        style.text,
+                        styleComponent.text.primary,
                         style.textDiscription]}
                     >By clicking Sign up, you agree to our</Text>
                     <View
@@ -122,13 +131,16 @@ export default function SignUp(props: { navigation: NativeStackNavigationProp<an
                         <Text
                             style={[
                                 style.textDiscription,
-                                style.text, style.colorViolet
+                                styleComponent.text.primary,
+                                {
+                                    color: '#833DB4'
+                                }
                             ]}
                         >Terms of Use</Text>
                         <Text
                             style={[
                                 style.textDiscription,
-                                style.text,
+                                styleComponent.text.primary,
                                 {
                                     marginHorizontal: 2,
                                 }
@@ -137,8 +149,10 @@ export default function SignUp(props: { navigation: NativeStackNavigationProp<an
                         <Text
                             style={[
                                 style.textDiscription,
-                                style.text,
-                                style.colorViolet
+                                styleComponent.text.primary,
+                                {
+                                    color: '#833DB4'
+                                }
                             ]}
                         >Privacy Policy</Text>
                     </View>
@@ -171,7 +185,7 @@ export default function SignUp(props: { navigation: NativeStackNavigationProp<an
                                 fontWeight: '600',
                                 color: inputNumberPhone.length > 0 ? 'white' : '#9599AE'
                             },
-                            style.text
+                            styleComponent.text.primary
                         ]
                     }}
                 />
@@ -182,12 +196,6 @@ export default function SignUp(props: { navigation: NativeStackNavigationProp<an
 
 
 const style = StyleSheet.create({
-    text: {
-        fontFamily: 'Nunito',
-    },
-    colorViolet: {
-        color: '#833DB4'
-    },
     textDiscription: {
         color: '#31385C',
         fontWeight: '600',
