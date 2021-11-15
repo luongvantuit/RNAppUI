@@ -1,6 +1,7 @@
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
+import { Keyboard } from 'react-native';
 import {
     View,
     Text,
@@ -9,6 +10,7 @@ import {
     StyleSheet,
 } from 'react-native';
 import styleComponent from '../styles/style-component';
+import ButtonForm from '../widgets/ButtonForm';
 import Container from '../widgets/Container';
 import HeaderBack from '../widgets/HeaderBack';
 
@@ -22,7 +24,10 @@ export default function Confirmation(props: {
 
     return (
         <Container>
-            <HeaderBack navigation={props.navigation} title="Confirmation" />
+            <HeaderBack
+                navigation={props.navigation}
+                title="Confirmation"
+            />
             <Text
                 style={[
                     {
@@ -107,9 +112,6 @@ export default function Confirmation(props: {
                     >
                         Did't get a code?
                     </Text>
-                    {
-                        /// Button Resend Code Verify
-                    }
                     <Pressable
                         onPress={() => {
 
@@ -128,7 +130,7 @@ export default function Confirmation(props: {
                         </Text>
                     </Pressable>
                 </View>
-                <Pressable
+                <ButtonForm
                     style={[
                         {
                             marginHorizontal: 20,
@@ -140,12 +142,13 @@ export default function Confirmation(props: {
                         }
                     ]}
                     onPress={() => {
+                        Keyboard.dismiss();
                         if (inputCode.length >= 6)
                             props.navigation.navigate('CreatePassword');
                     }}
-                >
-                    <Text
-                        style={[
+                    content='VERIFY'
+                    contentProps={{
+                        style: [
                             {
                                 lineHeight: 40,
                                 color: inputCode.length >= 6 ? 'white' : '#9599AE',
@@ -154,9 +157,9 @@ export default function Confirmation(props: {
                             },
                             styleComponent.text.textAlignCenter,
                             styleComponent.text.primary,
-                        ]}
-                    >VERIFY</Text>
-                </Pressable>
+                        ]
+                    }}
+                />
             </View>
         </Container>
     );
