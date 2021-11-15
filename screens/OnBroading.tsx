@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import styleComponent from '../styles/style-component';
 
 
