@@ -1,0 +1,29 @@
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import styleComponent from '../styles/style-component'
+
+export default function HeaderBase(props: { title?: string }) {
+    return (
+        <Text style={[
+            styleComponent.position.positionAbsolute,
+            style.title,
+            {
+                height: 44,
+                marginTop: 44,
+            }
+        ]}>{props.title}</Text>
+    )
+}
+
+const style = StyleSheet.create({
+    title: {
+        fontFamily: 'Nunito',
+        fontWeight: '600',
+        fontSize: 20,
+        color: '#101840',
+        top: 0,
+        left: 0,
+        right: 0,
+        textAlign: 'center'
+    },
+})

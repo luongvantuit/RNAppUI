@@ -2,6 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react';
 import Confirmation from '../screens/Confirmation';
+import CreatePassword from '../screens/CreatePassword';
 import OnBroading from '../screens/OnBroading';
 import Recovery from '../screens/Recovery';
 import SignIn from '../screens/SignIn';
@@ -16,12 +17,19 @@ export default function NavigatorApp() {
         <Stack.Screen name={"SignUp"} component={SignUp} options={{
           headerShown: false
         }} />
-        <Stack.Screen name={"SignIn"} component={SignIn} />
-        <Stack.Screen name={"Recovery"} component={Recovery} />
+        <Stack.Screen name={"SignIn"} component={SignIn} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name={"Recovery"} component={Recovery} options={{
+          headerShown: false
+        }} />
         <Stack.Screen name={"Confirmation"} component={Confirmation} options={{
           headerShown: false
         }} />
         <Stack.Screen name={"OnBroading"} component={OnBroading} options={{
+          headerShown: false,
+        }} />
+        <Stack.Screen name={"CreatePassword"} component={CreatePassword} options={{
           headerShown: false,
         }} />
       </Stack.Navigator>
