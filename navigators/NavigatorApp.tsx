@@ -18,7 +18,9 @@ export default function NavigatorApp() {
         }} />
         <Stack.Screen name={"SignIn"} component={SignIn} />
         <Stack.Screen name={"Recovery"} component={Recovery} />
-        <Stack.Screen name={"Confirmation"} component={Confirmation} />
+        <Stack.Screen name={"Confirmation"} component={Confirmation} options={{
+          headerShown: false
+        }} />
         <Stack.Screen name={"OnBroading"} component={OnBroading} options={{
           headerShown: false,
         }} />

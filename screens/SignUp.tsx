@@ -129,7 +129,14 @@ export default function SignUp(props: { navigation: NativeStackNavigationProp<an
                 marginBottom: inputNumberPhoneFocus ? 15.5 : 97.5,
                 backgroundColor: inputNumberPhone.length > 0 ? '#833DB4' : '#E5E6EE'
               },
-            ]}>
+            ]}
+            onPress={() => {
+              if (inputNumberPhone.length > 0)
+                props.navigation.navigate('Confirmation', {
+                  numberPhone: inputNumberPhone
+                })
+            }}
+          >
             <Text style={
               [
                 {
