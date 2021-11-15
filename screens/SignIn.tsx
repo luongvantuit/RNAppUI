@@ -2,7 +2,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import { View, Text, Pressable, Keyboard, StyleSheet } from 'react-native';
 import styleComponent from '../styles/style-component';
-import IcoEyeOpen from '../svg/IcoEyeOpen';
+import IcoFace from '../svg/IcoFace';
+import IcoFinger from '../svg/IcoFinger';
 import IcoLock from '../svg/IcoLock';
 import IcoSelect from '../svg/IcoSelect';
 import ButtonForm from '../widgets/ButtonForm';
@@ -19,7 +20,9 @@ export default function SignIn(props: { navigation: NativeStackNavigationProp<an
 
     return (
         <Container>
-            <HeaderBase title='Good morning !' />
+            <HeaderBase
+                title={inputPassword.length > 0 && inputNumberPhone.length > 0 ? 'Welcome back' : 'Good morning !'}
+            />
             <TextInputForm
                 prefix={<View
                     style={[
@@ -144,6 +147,54 @@ export default function SignIn(props: { navigation: NativeStackNavigationProp<an
                 textContentType='password'
             />
 
+            <View
+                style={[
+                    styleComponent.flex.row,
+                    styleComponent.box.justifyContentCenter
+                ]}
+            >
+                <Pressable
+                    style={[
+                        {
+                            margin: 20,
+                        }
+                    ]}
+                >
+                    <IcoFinger width={40} height={40} />
+                </Pressable>
+                <Pressable
+                    style={[
+                        {
+                            margin: 20,
+                        }
+                    ]}
+                >
+                    <IcoFace width={40} height={40} />
+                </Pressable>
+            </View>
+            <View
+                style={[
+                    styleComponent.flex.row,
+                    styleComponent.box.justifyContentCenter
+                ]}
+            >
+                <Pressable
+                    onPress={() => {
+                        props.navigation.navigate("Recovery")
+                    }}
+                >
+                    <Text
+                        style={[
+                            styleComponent.text.primary,
+                            {
+                                color: '#833DB4',
+                                fontSize: 14,
+                                fontWeight: '600'
+                            }
+                        ]}
+                    >Forget password</Text>
+                </Pressable>
+            </View>
 
 
             {

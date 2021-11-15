@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react';
 import Confirmation from '../screens/Confirmation';
 import CreatePassword from '../screens/CreatePassword';
+import NewPassword from '../screens/NewPassword';
 import OnBroading from '../screens/OnBroading';
 import Recovery from '../screens/Recovery';
 import SignIn from '../screens/SignIn';
@@ -30,6 +31,9 @@ export default function NavigatorApp() {
                     headerShown: false,
                 }} />
                 <Stack.Screen name={"CreatePassword"} component={CreatePassword} options={{
+                    headerShown: false,
+                }} />
+                <Stack.Screen name={"NewPassword"} component={NewPassword} options={{
                     headerShown: false,
                 }} />
             </Stack.Navigator>
