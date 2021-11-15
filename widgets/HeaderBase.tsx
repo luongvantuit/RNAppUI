@@ -1,11 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import styleComponent from '../styles/style-component'
+import { Text, StyleSheet } from 'react-native'
 
 export default function HeaderBase(props: { title?: string }) {
     return (
         <Text style={[
-            styleComponent.position.positionAbsolute,
             style.title,
             {
                 height: 44,

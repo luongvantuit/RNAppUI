@@ -85,9 +85,7 @@ export default function Confirmation(props: {
             />
             <View
                 style={[
-                    {
-                        justifyContent: 'flex-end'
-                    },
+                    styleComponent.box.justifyContentFlexEnd,
                     styleComponent.box.container,
                     styleComponent.display.flex
                 ]}
